@@ -1,0 +1,46 @@
+<Solution>
+  <Folder Name="/IT.Ticket.Addapter.Interface/" />
+  <Folder Name="/IT.Ticket.Addapter.Interface/src/">
+    <Project Path="IT.Ticket.Addapter.Interface/src/IT.Ticket.Addapter.Interface.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Addapter.Transport/" />
+  <Folder Name="/IT.Ticket.Addapter.Transport/src/">
+    <Project Path="IT.Ticket.Addapter.Transport/src/IT.Ticket.Addapter.Transport.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Authoring.Binary/" />
+  <Folder Name="/IT.Ticket.Authoring.Binary/src/">
+    <Project Path="IT.Ticket.Authoring.Binary/src/IT.Ticket.Authoring.Binary.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Authoring.Unity.ECS/" />
+  <Folder Name="/IT.Ticket.Authoring.Unity.ECS/src/">
+    <Project Path="IT.Ticket.Authoring.Unity.ECS/src/IT.Ticket.Authoring.Unity.ECS.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Data.Frent/" />
+  <Folder Name="/IT.Ticket.Data.Frent/src/">
+    <Project Path="IT.Ticket.Data.Frent/src/IT.Ticket.Data.Frent.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Data.Unity-ECS/" />
+  <Folder Name="/IT.Ticket.Data.Unity-ECS/src/">
+    <Project Path="IT.Ticket.Data.Unity-ECS/src/IT.Ticket.Data.Unity-ECS.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Data/" />
+  <Folder Name="/IT.Ticket.Data/src/">
+    <Project Path="IT.Ticket.Data/src/IT.Ticket.Data.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Impl/" />
+  <Folder Name="/IT.Ticket.Impl/src/">
+    <Project Path="IT.Ticket.Impl/src/IT.Ticket.Impl.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Service.DotNet/" />
+  <Folder Name="/IT.Ticket.Service.DotNet/src/">
+    <Project Path="IT.Ticket.Service.DotNet/src/IT.Ticket.Service.DotNet.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Settings.Frent/" />
+  <Folder Name="/IT.Ticket.Settings.Frent/src/">
+    <Project Path="IT.Ticket.Settings.Frent/src/IT.Ticket.Settings.Frent.csproj" />
+  </Folder>
+  <Folder Name="/IT.Ticket.Settings.Unity.ECS/" />
+  <Folder Name="/IT.Ticket.Settings.Unity.ECS/src/">
+    <Project Path="IT.Ticket.Settings.Unity.ECS/src/IT.Ticket.Settings.Unity.ECS.csproj" />
+  </Folder>
+</Solution>
