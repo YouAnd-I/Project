@@ -1,4 +1,12 @@
 <Solution>
+  <Folder Name="/Discord.ID.Data/" />
+  <Folder Name="/Discord.ID.Data/src/">
+    <Project Path="Discord.ID.Data/src/Discord.ID.Data.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Ping.System.Frent/" />
+  <Folder Name="/Discord.Ping.System.Frent/src/">
+    <Project Path="Discord.Ping.System.Frent/src/Discord.Ping.System.Frent.csproj" />
+  </Folder>
   <Folder Name="/IT.Ticket.Addapter.Interface/" />
   <Folder Name="/IT.Ticket.Addapter.Interface/src/">
     <Project Path="IT.Ticket.Addapter.Interface/src/IT.Ticket.Addapter.Interface.csproj" />
@@ -42,5 +50,13 @@
   <Folder Name="/IT.Ticket.Settings.Unity.ECS/" />
   <Folder Name="/IT.Ticket.Settings.Unity.ECS/src/">
     <Project Path="IT.Ticket.Settings.Unity.ECS/src/IT.Ticket.Settings.Unity.ECS.csproj" />
+  </Folder>
+  <Folder Name="/Status.Data/" />
+  <Folder Name="/Status.Data/src/">
+    <Project Path="Status.Data/src/Status.Data.csproj" />
+  </Folder>
+  <Folder Name="/UID.Data/" />
+  <Folder Name="/UID.Data/src/">
+    <Project Path="UID.Data/src/UID.Data.csproj" />
   </Folder>
 </Solution>

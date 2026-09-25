@@ -34,3 +34,15 @@
 [submodule "Diagram.IT.Ticket"]
 	path = Diagram.IT.Ticket
 	url = https://github.com/YouAnd-I/Diagram.IT.Ticket
+[submodule "UID.Data"]
+	path = CS/src/UID.Data
+	url = https://github.com/YouAnd-I/UID.Data
+[submodule "Discord.ID.Data"]
+	path = CS/src/Discord.ID.Data
+	url = https://github.com/YouAnd-I/Discord.ID.Data
+[submodule "Status.Data"]
+	path = CS/src/Status.Data
+	url = https://github.com/YouAnd-I/Status.Data
+[submodule "Discord.Ping.System.Frent"]
+	path = CS/src/Discord.Ping.System.Frent
+	url = https://github.com/YouAnd-I/Discord.Ping.System.Frent
