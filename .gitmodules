@@ -49,3 +49,15 @@
 [submodule "CS/Identity"]
 	path = CS/Identity
 	url = https://github.com/YouAnd-I/Identity
+[submodule "CS/Device.Data"]
+	path = CS/Device.Data
+	url = https://github.com/YouAnd-I/Device.Data
+[submodule "CS/User.Data"]
+	path = CS/User.Data
+	url = https://github.com/YouAnd-I/User.Data
+[submodule "CS/DeviceUserBinding.Data"]
+	path = CS/DeviceUserBinding.Data
+	url = https://github.com/YouAnd-I/DeviceUserBinding.Data
+[submodule "CS/Session.Data"]
+	path = CS/Session.Data
+	url = https://github.com/YouAnd-I/Session.Data
