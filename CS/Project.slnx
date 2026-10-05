@@ -17,9 +17,23 @@
   <Folder Name="/Discord.ID.Data/src/">
     <Project Path="Discord.ID.Data/src/Discord.ID.Data.csproj" />
   </Folder>
+  <Folder Name="/Discord.Ping.Data/" />
+  <Folder Name="/Discord.Ping.Data/src/">
+    <Project Path="Discord.Ping.Data/src/Discord.Ping.Data.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Ping.Data/tests/">
+    <Project Path="Discord.Ping.Data/tests/Discord.Ping.Data.Tests.csproj" />
+  </Folder>
   <Folder Name="/Discord.Ping.System.Frent/" />
   <Folder Name="/Discord.Ping.System.Frent/src/">
     <Project Path="Discord.Ping.System.Frent/src/Discord.Ping.System.Frent.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Ping.System.Frent/tests/">
+    <Project Path="Discord.Ping.System.Frent/tests/Discord.Ping.System.Frent.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Ping.System.NetCord/" />
+  <Folder Name="/Discord.Ping.System.NetCord/src/">
+    <Project Path="Discord.Ping.System.NetCord/src/Discord.Ping.System.NetCord.csproj" />
   </Folder>
   <Folder Name="/IT.Ticket.Addapter.Interface/" />
   <Folder Name="/IT.Ticket.Addapter.Interface/src/">

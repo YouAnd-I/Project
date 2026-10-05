@@ -58,3 +58,9 @@
 [submodule "CS/Provider.Data"]
 	path = CS/Provider.Data
 	url = https://github.com/YouAnd-I/Provider.Data
+[submodule "CS/Discord.Ping.Data"]
+	path = CS/Discord.Ping.Data
+	url = https://github.com/YouAnd-I/Discord.Ping.Data
+[submodule "CS/Discord.Ping.System.NetCord"]
+	path = CS/Discord.Ping.System.NetCord
+	url = https://github.com/YouAnd-I/Discord.Ping.System.NetCord
