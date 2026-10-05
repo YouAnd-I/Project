@@ -64,3 +64,12 @@
 [submodule "CS/Discord.Ping.System.NetCord"]
 	path = CS/Discord.Ping.System.NetCord
 	url = https://github.com/YouAnd-I/Discord.Ping.System.NetCord
+[submodule "CS/Discord.Greet.Data"]
+	path = CS/Discord.Greet.Data
+	url = https://github.com/YouAnd-I/Discord.Greet.Data
+[submodule "CS/Discord.Greet.System.Frent"]
+	path = CS/Discord.Greet.System.Frent
+	url = https://github.com/YouAnd-I/Discord.Greet.System.Frent
+[submodule "CS/Discord.Greet.System.NetCord"]
+	path = CS/Discord.Greet.System.NetCord
+	url = https://github.com/YouAnd-I/Discord.Greet.System.NetCord

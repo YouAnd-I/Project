@@ -13,6 +13,24 @@
   <Folder Name="/DeviceUserBinding.Data/tests/">
     <Project Path="DeviceUserBinding.Data/tests/DeviceUserBinding.Data.Tests.csproj" />
   </Folder>
+  <Folder Name="/Discord.Greet.Data/" />
+  <Folder Name="/Discord.Greet.Data/src/">
+    <Project Path="Discord.Greet.Data/src/Discord.Greet.Data.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Greet.Data/tests/">
+    <Project Path="Discord.Greet.Data/tests/Discord.Greet.Data.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Greet.System.Frent/" />
+  <Folder Name="/Discord.Greet.System.Frent/src/">
+    <Project Path="Discord.Greet.System.Frent/src/Discord.Greet.System.Frent.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Greet.System.Frent/tests/">
+    <Project Path="Discord.Greet.System.Frent/tests/Discord.Greet.System.Frent.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Discord.Greet.System.NetCord/" />
+  <Folder Name="/Discord.Greet.System.NetCord/src/">
+    <Project Path="Discord.Greet.System.NetCord/src/Discord.Greet.System.NetCord.csproj" />
+  </Folder>
   <Folder Name="/Discord.ID.Data/" />
   <Folder Name="/Discord.ID.Data/src/">
     <Project Path="Discord.ID.Data/src/Discord.ID.Data.csproj" />
