@@ -7,6 +7,10 @@
   <Folder Name="/Discord.Ping.System.Frent/src/">
     <Project Path="Discord.Ping.System.Frent/src/Discord.Ping.System.Frent.csproj" />
   </Folder>
+  <Folder Name="/Identity/" />
+  <Folder Name="/Identity/src/">
+    <Project Path="Identity/src/Identity.csproj" />
+  </Folder>
   <Folder Name="/IT.Ticket.Addapter.Interface/" />
   <Folder Name="/IT.Ticket.Addapter.Interface/src/">
     <Project Path="IT.Ticket.Addapter.Interface/src/IT.Ticket.Addapter.Interface.csproj" />

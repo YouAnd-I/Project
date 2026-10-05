@@ -46,3 +46,6 @@
 [submodule "Discord.Ping.System.Frent"]
 	path = CS/Discord.Ping.System.Frent
 	url = https://github.com/YouAnd-I/Discord.Ping.System.Frent
+[submodule "CS/Identity"]
+	path = CS/Identity
+	url = https://github.com/YouAnd-I/Identity.git
