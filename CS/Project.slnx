@@ -21,10 +21,6 @@
   <Folder Name="/Discord.Ping.System.Frent/src/">
     <Project Path="Discord.Ping.System.Frent/src/Discord.Ping.System.Frent.csproj" />
   </Folder>
-  <Folder Name="/Identity/" />
-  <Folder Name="/Identity/src/">
-    <Project Path="Identity/src/Identity.csproj" />
-  </Folder>
   <Folder Name="/IT.Ticket.Addapter.Interface/" />
   <Folder Name="/IT.Ticket.Addapter.Interface/src/">
     <Project Path="IT.Ticket.Addapter.Interface/src/IT.Ticket.Addapter.Interface.csproj" />
@@ -68,6 +64,13 @@
   <Folder Name="/IT.Ticket.Settings.Unity.ECS/" />
   <Folder Name="/IT.Ticket.Settings.Unity.ECS/src/">
     <Project Path="IT.Ticket.Settings.Unity.ECS/src/IT.Ticket.Settings.Unity.ECS.csproj" />
+  </Folder>
+  <Folder Name="/Provider.Data/" />
+  <Folder Name="/Provider.Data/src/">
+    <Project Path="Provider.Data/src/Provider.Data.csproj" />
+  </Folder>
+  <Folder Name="/Provider.Data/tests/">
+    <Project Path="Provider.Data/tests/Provider.Data.Tests.csproj" />
   </Folder>
   <Folder Name="/Session.Data/" />
   <Folder Name="/Session.Data/src/">

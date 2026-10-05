@@ -46,9 +46,6 @@
 [submodule "Discord.Ping.System.Frent"]
 	path = CS/Discord.Ping.System.Frent
 	url = https://github.com/YouAnd-I/Discord.Ping.System.Frent
-[submodule "CS/Identity"]
-	path = CS/Identity
-	url = https://github.com/YouAnd-I/Identity
 [submodule "CS/Device.Data"]
 	path = CS/Device.Data
 	url = https://github.com/YouAnd-I/Device.Data
@@ -61,3 +58,6 @@
 [submodule "CS/Session.Data"]
 	path = CS/Session.Data
 	url = https://github.com/YouAnd-I/Session.Data
+[submodule "CS/Provider.Data"]
+	path = CS/Provider.Data
+	url = https://github.com/YouAnd-I/Provider.Data
