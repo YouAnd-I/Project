@@ -83,10 +83,6 @@
   <Folder Name="/Status.Data/src/">
     <Project Path="Status.Data/src/Status.Data.csproj" />
   </Folder>
-  <Folder Name="/UID.Data/" />
-  <Folder Name="/UID.Data/src/">
-    <Project Path="UID.Data/src/UID.Data.csproj" />
-  </Folder>
   <Folder Name="/User.Data/" />
   <Folder Name="/User.Data/src/">
     <Project Path="User.Data/src/User.Data.csproj" />

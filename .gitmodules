@@ -34,9 +34,6 @@
 [submodule "Diagram.IT.Ticket"]
 	path = Diagram.IT.Ticket
 	url = https://github.com/YouAnd-I/Diagram.IT.Ticket
-[submodule "UID.Data"]
-	path = CS/UID.Data
-	url = https://github.com/YouAnd-I/UID.Data
 [submodule "Discord.ID.Data"]
 	path = CS/Discord.ID.Data
 	url = https://github.com/YouAnd-I/Discord.ID.Data
