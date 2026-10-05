@@ -1,48 +1,48 @@
 [submodule "IT.Ticket.Addapter.Interface"]
-	path = CS/src/IT.Ticket.Addapter.Interface
+	path = CS/IT.Ticket.Addapter.Interface
 	url = https://github.com/YouAnd-I/IT.Ticket.Addapter.Interface
 [submodule "IT.Ticket.Addapter.Transport"]
-	path = CS/src/IT.Ticket.Addapter.Transport
+	path = CS/IT.Ticket.Addapter.Transport
 	url = https://github.com/YouAnd-I/IT.Ticket.Addapter.Transport
 [submodule "IT.Ticket.Authoring.Binary"]
-	path = CS/src/IT.Ticket.Authoring.Binary
+	path = CS/IT.Ticket.Authoring.Binary
 	url = https://github.com/YouAnd-I/IT.Ticket.Authoring.Binary
 [submodule "IT.Ticket.Authoring.Unity.ECS"]
-	path = CS/src/IT.Ticket.Authoring.Unity.ECS
+	path = CS/IT.Ticket.Authoring.Unity.ECS
 	url = https://github.com/YouAnd-I/IT.Ticket.Authoring.Unity.ECS
 [submodule "IT.Ticket.Data"]
-	path = CS/src/IT.Ticket.Data
+	path = CS/IT.Ticket.Data
 	url = https://github.com/YouAnd-I/IT.Ticket.Data
 [submodule "IT.Ticket.Data.Frent"]
-	path = CS/src/IT.Ticket.Data.Frent
+	path = CS/IT.Ticket.Data.Frent
 	url = https://github.com/YouAnd-I/IT.Ticket.Data.Frent
 [submodule "IT.Ticket.Data.Unity-ECS"]
-	path = CS/src/IT.Ticket.Data.Unity-ECS
+	path = CS/IT.Ticket.Data.Unity-ECS
 	url = https://github.com/YouAnd-I/IT.Ticket.Data.Unity-ECS
 [submodule "IT.Ticket.Impl"]
-	path = CS/src/IT.Ticket.Impl
+	path = CS/IT.Ticket.Impl
 	url = https://github.com/YouAnd-I/IT.Ticket.Impl
 [submodule "IT.Ticket.Service.DotNet"]
-	path = CS/src/IT.Ticket.Service.DotNet
+	path = CS/IT.Ticket.Service.DotNet
 	url = https://github.com/YouAnd-I/IT.Ticket.Service.DotNet
 [submodule "IT.Ticket.Settings.Frent"]
-	path = CS/src/IT.Ticket.Settings.Frent
+	path = CS/IT.Ticket.Settings.Frent
 	url = https://github.com/YouAnd-I/IT.Ticket.Settings.Frent
 [submodule "IT.Ticket.Settings.Unity.ECS"]
-	path = CS/src/IT.Ticket.Settings.Unity.ECS
+	path = CS/IT.Ticket.Settings.Unity.ECS
 	url = https://github.com/YouAnd-I/IT.Ticket.Settings.Unity.ECS
 [submodule "Diagram.IT.Ticket"]
 	path = Diagram.IT.Ticket
 	url = https://github.com/YouAnd-I/Diagram.IT.Ticket
 [submodule "UID.Data"]
-	path = CS/src/UID.Data
+	path = CS/UID.Data
 	url = https://github.com/YouAnd-I/UID.Data
 [submodule "Discord.ID.Data"]
-	path = CS/src/Discord.ID.Data
+	path = CS/Discord.ID.Data
 	url = https://github.com/YouAnd-I/Discord.ID.Data
 [submodule "Status.Data"]
-	path = CS/src/Status.Data
+	path = CS/Status.Data
 	url = https://github.com/YouAnd-I/Status.Data
 [submodule "Discord.Ping.System.Frent"]
-	path = CS/src/Discord.Ping.System.Frent
+	path = CS/Discord.Ping.System.Frent
 	url = https://github.com/YouAnd-I/Discord.Ping.System.Frent
