@@ -139,7 +139,9 @@ ticker — it never touches the world) runs on boot and then every interval
 in the `public` schema through `information_schema` — a new table is picked up
 with no code change — and `SheetsSync` creates missing tabs, then clears and
 rewrites each one through the Sheets REST API (header row included,
-`valueInputOption=RAW`, 5 000 rows per request). A failed sync logs and waits
+`valueInputOption=RAW`, 5 000 rows per request). Sheets stores numbers as
+doubles, so integers beyond 2^53 — every Discord snowflake — are written as
+text to survive the round trip. A failed sync logs and waits
 for the next round; it can never take the bot down.
 
 It is active only when `Postgres__ConnectionString` **and**
