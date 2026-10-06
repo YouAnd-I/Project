@@ -46,6 +46,13 @@
   <Folder Name="/Greet.System.Frent/tests/">
     <Project Path="Greet.System.Frent/tests/Greet.System.Frent.Tests.csproj" />
   </Folder>
+  <Folder Name="/Identity.Data/" />
+  <Folder Name="/Identity.Data/src/">
+    <Project Path="Identity.Data/src/Identity.Data.csproj" />
+  </Folder>
+  <Folder Name="/Identity.Data/tests/">
+    <Project Path="Identity.Data/tests/Identity.Data.Tests.csproj" />
+  </Folder>
   <Folder Name="/IT.Ticket.Addapter.Interface/" />
   <Folder Name="/IT.Ticket.Addapter.Interface/src/">
     <Project Path="IT.Ticket.Addapter.Interface/src/IT.Ticket.Addapter.Interface.csproj" />
@@ -150,12 +157,5 @@
   </Folder>
   <Folder Name="/Ticket.System.Frent/tests/">
     <Project Path="Ticket.System.Frent/tests/Ticket.System.Frent.Tests.csproj" />
-  </Folder>
-  <Folder Name="/User.Data/" />
-  <Folder Name="/User.Data/src/">
-    <Project Path="User.Data/src/User.Data.csproj" />
-  </Folder>
-  <Folder Name="/User.Data/tests/">
-    <Project Path="User.Data/tests/User.Data.Tests.csproj" />
   </Folder>
 </Solution>

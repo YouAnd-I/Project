@@ -46,9 +46,9 @@
 [submodule "CS/Device.Data"]
 	path = CS/Device.Data
 	url = https://github.com/YouAnd-I/Device.Data
-[submodule "CS/User.Data"]
-	path = CS/User.Data
-	url = https://github.com/YouAnd-I/User.Data
+[submodule "CS/Identity.Data"]
+	path = CS/Identity.Data
+	url = https://github.com/YouAnd-I/Identity.Data
 [submodule "CS/DeviceUserBinding.Data"]
 	path = CS/DeviceUserBinding.Data
 	url = https://github.com/YouAnd-I/DeviceUserBinding.Data
