@@ -132,24 +132,42 @@ order by occurred_at_utc;
 
 ## Neon → Google Sheets: `Ticket.Adapter.Sheets`
 
-Everything Postgres holds also lands in a Google Sheet, one tab per table.
-`SheetsSyncService` (a hosted service in the composition root, like the world
-ticker — it never touches the world) runs on boot and then every interval
-(`Google__SyncIntervalMinutes`, default 10): `NeonDump` reads every `BASE TABLE`
-in the `public` schema through `information_schema` — a new table is picked up
-with no code change — and `SheetsSync` creates missing tabs, then clears and
-rewrites each one through the Sheets REST API (header row included,
-`valueInputOption=RAW`, 5 000 rows per request). Sheets stores numbers as
-doubles, so integers beyond 2^53 — every Discord snowflake — are written as
-text to survive the round trip. A failed sync logs and waits
-for the next round; it can never take the bot down.
+Everything Postgres holds also lands in a Google Sheet, one tab per table, and
+the sheet reads like a database browser, not a raw dump. `SheetsSyncService`
+(a hosted service in the composition root, like the world ticker — it never
+touches the world) runs on boot and then every interval
+(`Google__SyncIntervalMinutes`, default 10). Each sync is two phases:
+
+1. **Values** — `NeonDump` reads every `BASE TABLE` in the `public` schema
+   through `information_schema` (new tables are picked up with no code change)
+   and `SheetPlanBuilder` shapes each table for Sheets: display headers
+   (`created_at_utc` → `Created At Utc`), `*_id` columns as text (Sheets stores
+   numbers as doubles, so snowflakes beyond 2^53 would be corrupted),
+   `*_at_utc` columns as true date serials. Tabs are created only when
+   missing; afterwards only values are cleared and rewritten — formatting the
+   user added on top survives.
+2. **Presentation** — `SheetsPresentation` sends one `spreadsheets.batchUpdate`
+   per tab: frozen bold dark header, banding, filter, hidden gridlines,
+   computed column widths (capped; long text wraps), date and text formats,
+   checkboxes for booleans, dropdowns for `priority_code`/`status_code` fed
+   from the lookup tables, conditional colors for status/priority, and
+   warning-only protected ranges over `*_id` columns. A `Dashboard` tab is
+   first: status/priority counts (current status = latest event), the ten
+   most recent status events, a column chart and a doughnut.
+
+Presentation is **idempotent**: before each batch the sync fetches the tab's
+bandings, conditional rules, protected ranges and charts, deletes only its
+own (matched by range or owned titles), then re-adds the current set — a sync
+every 10 minutes converges instead of accumulating rules. Charts are the one
+thing the values API can't do idempotently per-range, so owned chart titles
+are deleted and re-added at fixed anchors.
 
 It is active only when `Postgres__ConnectionString` **and**
 `Google__ClientId`/`Google__ClientSecret`/`Google__RefreshToken` are set (the
-Aspire AppHost wires them from its `google-client-id`/`google-client-secret`/
-`google-refresh-token`/`google-spreadsheet-id` parameters, all optional).
-An empty `Google__SpreadsheetId` makes the first sync create the spreadsheet
-and log its URL; pin that id in configuration to keep it.
+Aspire AppHost wires them from its `Parameters:google-*` user secrets; unset
+values pass empty strings and the sync stays off). An empty
+`Google__SpreadsheetId` makes the first sync create the spreadsheet and log
+its URL; pin that id in configuration to keep it.
 
 The refresh token comes from a one-time consent: run
 `dotnet run --project CS/Ticket.Adapter.Sheets/auth -- <client_secret…json>`
