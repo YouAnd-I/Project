@@ -126,6 +126,31 @@
   <Folder Name="/Status.Data/src/">
     <Project Path="Status.Data/src/Status.Data.csproj" />
   </Folder>
+  <Folder Name="/Ticket.Adapter.Laya/" />
+  <Folder Name="/Ticket.Adapter.Laya/src/">
+    <Project Path="Ticket.Adapter.Laya/src/Ticket.Adapter.Laya.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.Adapter.Laya/tests/">
+    <Project Path="Ticket.Adapter.Laya/tests/Ticket.Adapter.Laya.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.Adapter.NetCord/" />
+  <Folder Name="/Ticket.Adapter.NetCord/src/">
+    <Project Path="Ticket.Adapter.NetCord/src/Ticket.Adapter.NetCord.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.Adapter.NetCord/tests/">
+    <Project Path="Ticket.Adapter.NetCord/tests/Ticket.Adapter.NetCord.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.Data/" />
+  <Folder Name="/Ticket.Data/src/">
+    <Project Path="Ticket.Data/src/Ticket.Data.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.System.Frent/" />
+  <Folder Name="/Ticket.System.Frent/src/">
+    <Project Path="Ticket.System.Frent/src/Ticket.System.Frent.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.System.Frent/tests/">
+    <Project Path="Ticket.System.Frent/tests/Ticket.System.Frent.Tests.csproj" />
+  </Folder>
   <Folder Name="/User.Data/" />
   <Folder Name="/User.Data/src/">
     <Project Path="User.Data/src/User.Data.csproj" />
