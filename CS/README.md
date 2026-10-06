@@ -13,7 +13,7 @@ Everything here runs through **one ECS world**, like a game:
 
 `Ping` and `Greet` are the reference features for request/response; `Ticket` is the
 reference for state that outlives a reply, buttons as inputs, and world-initiated
-calls (the laya classifier). When in doubt, copy `Greet` for simple features and
+calls (the Cloudflare classifier). When in doubt, copy `Greet` for simple features and
 `Ticket` for stateful ones.
 
 ## The life of a request: `/greet user:@alice message:hi`
@@ -42,7 +42,7 @@ sequenceDiagram
 5. The loop hands the response to the waiting adapter and despawns the entity.
 6. The adapter turns the plain data back into a Discord reply.
 
-## World → adapter events: the ticket asks laya for a priority
+## World → adapter events: the ticket asks Cloudflare for a priority
 
 `AskAsync` covers everything an adapter starts. When the **world** must start something
 (a slow external call it can't make inside a tick), it emits a notification:
@@ -53,12 +53,18 @@ sequenceDiagram
    once after building the loop: a delivery pass at the end of every tick removes the
    component and publishes it to subscribers.
 3. The adapter that can handle it subscribes — `world.Subscribe<PriorityClassifyRequested>(…)`
-   — does its platform work (the laya adapter POSTs to the classifier), and answers
+   — does its platform work (the Cloudflare adapter POSTs to Workers AI clef), and answers
    the world through the normal door: `AskAsync(new PriorityClassified { … })`.
 
 The reply contract stays unchanged: the system finishes the original request only when
 the answer arrives (the `/it` request waits behind an `AwaitingClassification`
-component until laya answers, then the ticket card goes out).
+component until the classifier answers, then the ticket card goes out).
+
+The classifier itself is Cloudflare Workers AI's [clef](https://developers.cloudflare.com/workers-ai/models/clef/)
+model — nothing runs locally. It needs `Cloudflare__AccountId`/`Cloudflare__ApiToken`
+(the Aspire AppHost wires them from its `cloudflare-account`/`cloudflare-token`
+parameters); without them, or when Cloudflare is unreachable, tickets still open —
+urgent and marked offline.
 
 ## Modules
 

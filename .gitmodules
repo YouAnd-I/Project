@@ -88,6 +88,6 @@
 [submodule "CS/Ticket.Adapter.NetCord"]
 	path = CS/Ticket.Adapter.NetCord
 	url = https://github.com/YouAnd-I/Ticket.Adapter.NetCord
-[submodule "CS/Ticket.Adapter.Laya"]
-	path = CS/Ticket.Adapter.Laya
-	url = https://github.com/YouAnd-I/Ticket.Adapter.Laya
+[submodule "CS/Ticket.Adapter.Cloudflare"]
+	path = CS/Ticket.Adapter.Cloudflare
+	url = https://github.com/YouAnd-I/Ticket.Adapter.Cloudflare

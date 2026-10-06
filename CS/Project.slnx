@@ -133,12 +133,12 @@
   <Folder Name="/Status.Data/src/">
     <Project Path="Status.Data/src/Status.Data.csproj" />
   </Folder>
-  <Folder Name="/Ticket.Adapter.Laya/" />
-  <Folder Name="/Ticket.Adapter.Laya/src/">
-    <Project Path="Ticket.Adapter.Laya/src/Ticket.Adapter.Laya.csproj" />
+  <Folder Name="/Ticket.Adapter.Cloudflare/" />
+  <Folder Name="/Ticket.Adapter.Cloudflare/src/">
+    <Project Path="Ticket.Adapter.Cloudflare/src/Ticket.Adapter.Cloudflare.csproj" />
   </Folder>
-  <Folder Name="/Ticket.Adapter.Laya/tests/">
-    <Project Path="Ticket.Adapter.Laya/tests/Ticket.Adapter.Laya.Tests.csproj" />
+  <Folder Name="/Ticket.Adapter.Cloudflare/tests/">
+    <Project Path="Ticket.Adapter.Cloudflare/tests/Ticket.Adapter.Cloudflare.Tests.csproj" />
   </Folder>
   <Folder Name="/Ticket.Adapter.NetCord/" />
   <Folder Name="/Ticket.Adapter.NetCord/src/">
