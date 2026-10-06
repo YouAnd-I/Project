@@ -40,9 +40,9 @@
 [submodule "Status.Data"]
 	path = CS/Status.Data
 	url = https://github.com/YouAnd-I/Status.Data
-[submodule "Discord.Ping.System.Frent"]
-	path = CS/Discord.Ping.System.Frent
-	url = https://github.com/YouAnd-I/Discord.Ping.System.Frent
+[submodule "CS/Ping.System.Frent"]
+	path = CS/Ping.System.Frent
+	url = https://github.com/YouAnd-I/Ping.System.Frent
 [submodule "CS/Device.Data"]
 	path = CS/Device.Data
 	url = https://github.com/YouAnd-I/Device.Data
@@ -58,18 +58,24 @@
 [submodule "CS/Provider.Data"]
 	path = CS/Provider.Data
 	url = https://github.com/YouAnd-I/Provider.Data
-[submodule "CS/Discord.Ping.Data"]
-	path = CS/Discord.Ping.Data
-	url = https://github.com/YouAnd-I/Discord.Ping.Data
-[submodule "CS/Discord.Ping.System.NetCord"]
-	path = CS/Discord.Ping.System.NetCord
-	url = https://github.com/YouAnd-I/Discord.Ping.System.NetCord
-[submodule "CS/Discord.Greet.Data"]
-	path = CS/Discord.Greet.Data
-	url = https://github.com/YouAnd-I/Discord.Greet.Data
-[submodule "CS/Discord.Greet.System.Frent"]
-	path = CS/Discord.Greet.System.Frent
-	url = https://github.com/YouAnd-I/Discord.Greet.System.Frent
-[submodule "CS/Discord.Greet.System.NetCord"]
-	path = CS/Discord.Greet.System.NetCord
-	url = https://github.com/YouAnd-I/Discord.Greet.System.NetCord
+[submodule "CS/Ping.Data"]
+	path = CS/Ping.Data
+	url = https://github.com/YouAnd-I/Ping.Data
+[submodule "CS/Ping.Adapter.NetCord"]
+	path = CS/Ping.Adapter.NetCord
+	url = https://github.com/YouAnd-I/Ping.Adapter.NetCord
+[submodule "CS/Greet.Data"]
+	path = CS/Greet.Data
+	url = https://github.com/YouAnd-I/Greet.Data
+[submodule "CS/Greet.System.Frent"]
+	path = CS/Greet.System.Frent
+	url = https://github.com/YouAnd-I/Greet.System.Frent
+[submodule "CS/Greet.Adapter.NetCord"]
+	path = CS/Greet.Adapter.NetCord
+	url = https://github.com/YouAnd-I/Greet.Adapter.NetCord
+[submodule "CS/Ecs.Client"]
+	path = CS/Ecs.Client
+	url = https://github.com/YouAnd-I/Ecs.Client
+[submodule "CS/Ecs.Loop.Frent"]
+	path = CS/Ecs.Loop.Frent
+	url = https://github.com/YouAnd-I/Ecs.Loop.Frent

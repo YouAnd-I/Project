@@ -13,45 +13,38 @@
   <Folder Name="/DeviceUserBinding.Data/tests/">
     <Project Path="DeviceUserBinding.Data/tests/DeviceUserBinding.Data.Tests.csproj" />
   </Folder>
-  <Folder Name="/Discord.Greet.Data/" />
-  <Folder Name="/Discord.Greet.Data/src/">
-    <Project Path="Discord.Greet.Data/src/Discord.Greet.Data.csproj" />
-  </Folder>
-  <Folder Name="/Discord.Greet.Data/tests/">
-    <Project Path="Discord.Greet.Data/tests/Discord.Greet.Data.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Discord.Greet.System.Frent/" />
-  <Folder Name="/Discord.Greet.System.Frent/src/">
-    <Project Path="Discord.Greet.System.Frent/src/Discord.Greet.System.Frent.csproj" />
-  </Folder>
-  <Folder Name="/Discord.Greet.System.Frent/tests/">
-    <Project Path="Discord.Greet.System.Frent/tests/Discord.Greet.System.Frent.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Discord.Greet.System.NetCord/" />
-  <Folder Name="/Discord.Greet.System.NetCord/src/">
-    <Project Path="Discord.Greet.System.NetCord/src/Discord.Greet.System.NetCord.csproj" />
-  </Folder>
   <Folder Name="/Discord.ID.Data/" />
   <Folder Name="/Discord.ID.Data/src/">
     <Project Path="Discord.ID.Data/src/Discord.ID.Data.csproj" />
   </Folder>
-  <Folder Name="/Discord.Ping.Data/" />
-  <Folder Name="/Discord.Ping.Data/src/">
-    <Project Path="Discord.Ping.Data/src/Discord.Ping.Data.csproj" />
+  <Folder Name="/Ecs.Client/" />
+  <Folder Name="/Ecs.Client/src/">
+    <Project Path="Ecs.Client/src/Ecs.Client.csproj" />
   </Folder>
-  <Folder Name="/Discord.Ping.Data/tests/">
-    <Project Path="Discord.Ping.Data/tests/Discord.Ping.Data.Tests.csproj" />
+  <Folder Name="/Ecs.Loop.Frent/" />
+  <Folder Name="/Ecs.Loop.Frent/src/">
+    <Project Path="Ecs.Loop.Frent/src/Ecs.Loop.Frent.csproj" />
   </Folder>
-  <Folder Name="/Discord.Ping.System.Frent/" />
-  <Folder Name="/Discord.Ping.System.Frent/src/">
-    <Project Path="Discord.Ping.System.Frent/src/Discord.Ping.System.Frent.csproj" />
+  <Folder Name="/Ecs.Loop.Frent/tests/">
+    <Project Path="Ecs.Loop.Frent/tests/Ecs.Loop.Frent.Tests.csproj" />
   </Folder>
-  <Folder Name="/Discord.Ping.System.Frent/tests/">
-    <Project Path="Discord.Ping.System.Frent/tests/Discord.Ping.System.Frent.Tests.csproj" />
+  <Folder Name="/Greet.Adapter.NetCord/" />
+  <Folder Name="/Greet.Adapter.NetCord/src/">
+    <Project Path="Greet.Adapter.NetCord/src/Greet.Adapter.NetCord.csproj" />
   </Folder>
-  <Folder Name="/Discord.Ping.System.NetCord/" />
-  <Folder Name="/Discord.Ping.System.NetCord/src/">
-    <Project Path="Discord.Ping.System.NetCord/src/Discord.Ping.System.NetCord.csproj" />
+  <Folder Name="/Greet.Adapter.NetCord/tests/">
+    <Project Path="Greet.Adapter.NetCord/tests/Greet.Adapter.NetCord.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Greet.Data/" />
+  <Folder Name="/Greet.Data/src/">
+    <Project Path="Greet.Data/src/Greet.Data.csproj" />
+  </Folder>
+  <Folder Name="/Greet.System.Frent/" />
+  <Folder Name="/Greet.System.Frent/src/">
+    <Project Path="Greet.System.Frent/src/Greet.System.Frent.csproj" />
+  </Folder>
+  <Folder Name="/Greet.System.Frent/tests/">
+    <Project Path="Greet.System.Frent/tests/Greet.System.Frent.Tests.csproj" />
   </Folder>
   <Folder Name="/IT.Ticket.Addapter.Interface/" />
   <Folder Name="/IT.Ticket.Addapter.Interface/src/">
@@ -96,6 +89,24 @@
   <Folder Name="/IT.Ticket.Settings.Unity.ECS/" />
   <Folder Name="/IT.Ticket.Settings.Unity.ECS/src/">
     <Project Path="IT.Ticket.Settings.Unity.ECS/src/IT.Ticket.Settings.Unity.ECS.csproj" />
+  </Folder>
+  <Folder Name="/Ping.Adapter.NetCord/" />
+  <Folder Name="/Ping.Adapter.NetCord/src/">
+    <Project Path="Ping.Adapter.NetCord/src/Ping.Adapter.NetCord.csproj" />
+  </Folder>
+  <Folder Name="/Ping.Adapter.NetCord/tests/">
+    <Project Path="Ping.Adapter.NetCord/tests/Ping.Adapter.NetCord.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Ping.Data/" />
+  <Folder Name="/Ping.Data/src/">
+    <Project Path="Ping.Data/src/Ping.Data.csproj" />
+  </Folder>
+  <Folder Name="/Ping.System.Frent/" />
+  <Folder Name="/Ping.System.Frent/src/">
+    <Project Path="Ping.System.Frent/src/Ping.System.Frent.csproj" />
+  </Folder>
+  <Folder Name="/Ping.System.Frent/tests/">
+    <Project Path="Ping.System.Frent/tests/Ping.System.Frent.Tests.csproj" />
   </Folder>
   <Folder Name="/Provider.Data/" />
   <Folder Name="/Provider.Data/src/">
