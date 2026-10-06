@@ -130,6 +130,30 @@ from ticket_status_event where ticket_id = 'd4c3edbf'
 order by occurred_at_utc;
 ```
 
+## Neon → Google Sheets: `Ticket.Adapter.Sheets`
+
+Everything Postgres holds also lands in a Google Sheet, one tab per table.
+`SheetsSyncService` (a hosted service in the composition root, like the world
+ticker — it never touches the world) runs on boot and then every interval
+(`Google__SyncIntervalMinutes`, default 10): `NeonDump` reads every `BASE TABLE`
+in the `public` schema through `information_schema` — a new table is picked up
+with no code change — and `SheetsSync` creates missing tabs, then clears and
+rewrites each one through the Sheets REST API (header row included,
+`valueInputOption=RAW`, 5 000 rows per request). A failed sync logs and waits
+for the next round; it can never take the bot down.
+
+It is active only when `Postgres__ConnectionString` **and**
+`Google__ClientId`/`Google__ClientSecret`/`Google__RefreshToken` are set (the
+Aspire AppHost wires them from its `google-client-id`/`google-client-secret`/
+`google-refresh-token`/`google-spreadsheet-id` parameters, all optional).
+An empty `Google__SpreadsheetId` makes the first sync create the spreadsheet
+and log its URL; pin that id in configuration to keep it.
+
+The refresh token comes from a one-time consent: run
+`dotnet run --project CS/Ticket.Adapter.Sheets/auth -- <client_secret…json>`
+with a Desktop-type OAuth client (redirect `http://localhost`); it opens the
+consent page and prints the refresh token.
+
 ## Modules
 
 | Module | Holds | May reference | Must never reference |

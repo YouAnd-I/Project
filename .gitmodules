@@ -94,3 +94,6 @@
 [submodule "CS/Ticket.Adapter.Npgsql"]
 	path = CS/Ticket.Adapter.Npgsql
 	url = https://github.com/YouAnd-I/Ticket.Adapter.Npgsql
+[submodule "CS/Ticket.Adapter.Sheets"]
+	path = CS/Ticket.Adapter.Sheets
+	url = https://github.com/YouAnd-I/Ticket.Adapter.Sheets
