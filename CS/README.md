@@ -107,6 +107,8 @@ to the loop. A system may hold state; adapters still only ever see `IWorldClient
 - **Inside `*.System.*` namespaces, `System` means your feature's namespace.** Write `global::System.X` when you need a fully qualified BCL name there.
 - **Don't name a type after its feature namespace.** Inside `Ticket.*` a type named `Ticket` hides the namespace (CS0118) — the ticket's entity component is `TicketRecord`. Same reason `User.Data` must not keep a type named `User` once adapters reference NetCord.
 - **Test where the logic is:** systems with a `World`, adapters with a stub `IWorldClient`, the loop with `Tick()`. Plain data gets no tests.
+- **A task ends committed and pushed.** Commit in each module repo you touched, let the superrepos (`Project`, `DotNet`) record the submodule bumps — the only commits that belong there — and push everything before reporting done.
+- **No comments in code.** The codebase is comment-free by design: every `//`, `///` doc and `/* */` comment was deliberately stripped. Don't add them back — explain here in the README and name things so they need no commentary.
 
 ## Not built yet
 
