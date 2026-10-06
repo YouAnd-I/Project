@@ -147,6 +147,13 @@
   <Folder Name="/Ticket.Adapter.NetCord/tests/">
     <Project Path="Ticket.Adapter.NetCord/tests/Ticket.Adapter.NetCord.Tests.csproj" />
   </Folder>
+  <Folder Name="/Ticket.Adapter.Npgsql/" />
+  <Folder Name="/Ticket.Adapter.Npgsql/src/">
+    <Project Path="Ticket.Adapter.Npgsql/src/Ticket.Adapter.Npgsql.csproj" />
+  </Folder>
+  <Folder Name="/Ticket.Adapter.Npgsql/tests/">
+    <Project Path="Ticket.Adapter.Npgsql/tests/Ticket.Adapter.Npgsql.Tests.csproj" />
+  </Folder>
   <Folder Name="/Ticket.Data/" />
   <Folder Name="/Ticket.Data/src/">
     <Project Path="Ticket.Data/src/Ticket.Data.csproj" />

@@ -91,3 +91,6 @@
 [submodule "CS/Ticket.Adapter.Cloudflare"]
 	path = CS/Ticket.Adapter.Cloudflare
 	url = https://github.com/YouAnd-I/Ticket.Adapter.Cloudflare
+[submodule "CS/Ticket.Adapter.Npgsql"]
+	path = CS/Ticket.Adapter.Npgsql
+	url = https://github.com/YouAnd-I/Ticket.Adapter.Npgsql

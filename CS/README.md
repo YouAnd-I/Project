@@ -66,6 +66,70 @@ model — nothing runs locally. It needs `Cloudflare__AccountId`/`Cloudflare__Ap
 parameters); without them, or when Cloudflare is unreachable, tickets still open —
 urgent and marked offline.
 
+## Where the data lives: tickets and every interaction in Postgres
+
+Set `Postgres__ConnectionString` (Neon; the Aspire AppHost passes its
+`neon-connection-string` parameter) and ticket state moves from the file store
+(`it-tickets.txt` + `it-tickets/*.json`) into a fully normalized schema,
+maintained by `Ticket.Adapter.Npgsql`:
+
+```mermaid
+erDiagram
+    discord_user  ||--o{ ticket : requests
+    discord_user  ||--o{ ticket : assigned
+    discord_user  ||--o{ ticket_status_event : acts
+    discord_user  ||--o{ ticket_note : writes
+    discord_user  ||--o{ ticket_report : files
+    discord_user  ||--o{ interaction : triggers
+    priority      ||--o{ ticket : classifies
+    ticket_status ||--o{ ticket_status_event : sets
+    ticket        ||--o{ ticket_status_event : has
+    ticket        ||--o{ ticket_note : has
+    ticket        ||--o{ ticket_report : has
+    interaction   ||--o{ interaction_option : has
+    interaction_kind ||--o{ interaction : types
+```
+
+- **1NF** — every attribute is atomic: no JSON blobs, no `key=value` log lines.
+  Notes are rows in `ticket_note`; a slash command's options are rows in
+  `interaction_option`.
+- **2NF/3NF** — every non-key attribute depends on the key, the whole key, and
+  nothing but the key. A user is one row in `discord_user` (usernames are never
+  duplicated into facts — the interaction audit *refreshes* the one row);
+  `priority` and `ticket_status` are lookup tables, so adding a status is an
+  insert, not a migration.
+- **BCNF** — the only determinants are the candidate keys. The current status
+  is *derived* (latest `ticket_status_event`), never stored twice; `LoadJson`
+  reassembles the file store's JSON shape from the normalized rows so
+  `TicketSystem.View` stays untouched.
+- **Integrity** — referential integrity by foreign keys; `ticket_report.
+  filed_by_user_id IS NULL` *means* anonymous. The one deliberate relaxation:
+  `interaction.ticket_id` is a soft reference, because a `/it` interaction
+  arrives before the ticket row exists — an audit trail must never be dropped
+  for a reference it can't have yet.
+
+Every Discord interaction the bot receives — every slash command, button,
+select menu, modal and context menu, whatever feature handles it — lands in
+`interaction` via `InteractionAuditHandler` (found by `AddGatewayHandlers`).
+On first boot against an empty database, the file store's `it-tickets.txt` is
+imported once into the normalized tables; `it-tickets/*.s.json` how-tos stay
+hand-authored files, mirrored into `solution` on every boot.
+
+Questions the schema answers directly:
+
+```sql
+-- every interaction alice triggered this week, newest first
+select received_at_utc, kind_code, name, ticket_id
+from interaction i join discord_user u on u.user_id = i.user_id
+where u.username = 'alice' and received_at_utc > now() - interval '7 days'
+order by received_at_utc desc;
+
+-- full status timeline of one ticket
+select occurred_at_utc, status_code, '<@' || actor_user_id || '>' as actor
+from ticket_status_event where ticket_id = 'd4c3edbf'
+order by occurred_at_utc;
+```
+
 ## Modules
 
 | Module | Holds | May reference | Must never reference |
