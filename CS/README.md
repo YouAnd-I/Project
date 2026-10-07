@@ -174,6 +174,44 @@ The refresh token comes from a one-time consent: run
 with a Desktop-type OAuth client (redirect `http://localhost`); it opens the
 consent page and prints the refresh token.
 
+## The IT directory: editable through the sheet, consumed by the bot
+
+Who is on call, what they specialize in, and when they are out is configuration,
+not code. Four Postgres tables — created and seeded by `NpgsqlDirectory` in
+`Ticket.Adapter.Npgsql` — hold it:
+
+- `ticket_category(slug, description)` — the classifier picks from these; the
+  description is the classifier guidance ("wifi, VPN, DNS…"). Add a row, and
+  the next ticket can be classified into it. Seeds: network, hardware,
+  account-access, software.
+- `it_staff(user_id, display_name, active)` — who may be texted. On first boot
+  the `Discord__ItUser` env value is seeded as the on-call staff; after that
+  the sheet is the only way in or out.
+- `it_staff_skill(user_id, slug)` — specialization: which staff member owns
+  which category.
+- `it_staff_absence(user_id, from_utc, until_utc, note)` — "I'm out for Oct 7,
+  don't text me". Date-only values cover the whole day (UTC).
+
+These tabs are **editable**: every sync first reads them back into Postgres
+(`IReverseSync`, applied by name-matched columns so extra or reordered columns
+are tolerated; junk rows are skipped), then mirrors the database out again.
+A deleted row in the sheet deletes the row in Postgres on the next sync.
+
+Routing and classification read the directory live:
+
+- `TicketSystem` puts the categories and **today's date** into every
+  `PriorityClassifyRequested` — the model has no clock, and availability is
+  time-based. The Cloudflare adapter builds its questions from them and also
+  answers a `category` choice.
+- When a ticket is finalized without an explicit assignee, the store routes:
+  specialists for the classified category who are active and not absent right
+  now, falling back to any active, non-absent staff (capped at three). The
+  mentions land in the ticket's `assigned`, and the NetCord adapter DMs each
+  of them — falling back to `Discord__ItUser` only when the directory is empty.
+
+The file store serves an empty directory: no categories to classify with, and
+routing returns nobody, which keeps the pre-Postgres behavior unchanged.
+
 ## Modules
 
 | Module | Holds | May reference | Must never reference |
