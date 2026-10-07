@@ -152,15 +152,23 @@ touches the world) runs on boot and then every interval
    checkboxes for booleans, dropdowns for `priority_code`/`status_code` fed
    from the lookup tables, conditional colors for status/priority, and
    warning-only protected ranges over `*_id` columns. A `Dashboard` tab is
-   first: status/priority counts (current status = latest event), the ten
-   most recent status events, a column chart and a doughnut.
+   first: number cards (open tickets, unsolved for more than a day, planned,
+   complete), the open ticket list oldest-first with assignee names and age,
+   solved-per-staff counts, status/priority counts (current status = latest
+   event), the ten most recent status events, and three charts (status bars,
+   priority doughnut, solved-by-staff bars).
 
 Presentation is **idempotent**: before each batch the sync fetches the tab's
 bandings, conditional rules, protected ranges and charts, deletes only its
 own (matched by range or owned titles), then re-adds the current set — a sync
 every 10 minutes converges instead of accumulating rules. Charts are the one
 thing the values API can't do idempotently per-range, so owned chart titles
-are deleted and re-added at fixed anchors.
+are deleted and re-added at fixed anchors. Checkbox and dropdown validation
+is applied only over the table's rows: validated empty cells read back as
+`FALSE` forever otherwise, and reads trim trailing empty/`FALSE` rows so a
+checkbox column can't fabricate junk rows. One full sync is ~35 Google write
+requests; their per-minute quota is 60, so manual back-to-back syncs can hit
+429 — the 10-minute interval never does.
 
 It is active only when `Postgres__ConnectionString` **and**
 `Google__ClientId`/`Google__ClientSecret`/`Google__RefreshToken` are set (the
@@ -176,21 +184,24 @@ consent page and prints the refresh token.
 
 ## The IT directory: editable through the sheet, consumed by the bot
 
-Who is on call, what they specialize in, and when they are out is configuration,
-not code. Four Postgres tables — created and seeded by `NpgsqlDirectory` in
-`Ticket.Adapter.Npgsql` — hold it:
+Who is on call, what they handle, when they are out, and what each urgency
+level means is configuration, not code — and it is all plain text a person
+can write. Three Postgres tables — created and migrated by `NpgsqlDirectory`
+in `Ticket.Adapter.Npgsql` — hold it:
 
-- `ticket_category(slug, description)` — the classifier picks from these; the
-  description is the classifier guidance ("wifi, VPN, DNS…"). Add a row, and
-  the next ticket can be classified into it. Seeds: network, hardware,
-  account-access, software.
-- `it_staff(user_id, display_name, active)` — who may be texted. On first boot
-  the `Discord__ItUser` env value is seeded as the on-call staff; after that
-  the sheet is the only way in or out.
-- `it_staff_skill(user_id, slug)` — specialization: which staff member owns
-  which category.
+- `it_staff(user_id, display_name, handles, active)` — who may be texted and
+  a free-text `handles` line the model reads ("wifi, VPN, anything
+  networking"). No skill tables, no slugs: the classifier is an LLM, prose is
+  the schema. On first boot the `Discord__ItUser` env value is seeded as
+  on-call with `handles = 'everything IT — first responder'`; after that the
+  sheet is the only way in or out.
 - `it_staff_absence(user_id, from_utc, until_utc, note)` — "I'm out for Oct 7,
   don't text me". Date-only values cover the whole day (UTC).
+- `priority(priority_code, description)` — the urgency levels (urgent, no-rush,
+  report) with the exact guidance text the model reads when choosing. Reword
+  "urgent" in the sheet and the next ticket is triaged by your words. Codes
+  still referenced by tickets are never deleted by a sheet edit, so the FK
+  can't break.
 
 These tabs are **editable**: every sync first reads them back into Postgres
 (`IReverseSync`, applied by name-matched columns so extra or reordered columns
@@ -199,18 +210,22 @@ A deleted row in the sheet deletes the row in Postgres on the next sync.
 
 Routing and classification read the directory live:
 
-- `TicketSystem` puts the categories and **today's date** into every
-  `PriorityClassifyRequested` — the model has no clock, and availability is
-  time-based. The Cloudflare adapter builds its questions from them and also
-  answers a `category` choice.
-- When a ticket is finalized without an explicit assignee, the store routes:
-  specialists for the classified category who are active and not absent right
-  now, falling back to any active, non-absent staff (capped at three). The
-  mentions land in the ticket's `assigned`, and the NetCord adapter DMs each
-  of them — falling back to `Discord__ItUser` only when the directory is empty.
+- `TicketSystem` puts the priority guidance, the on-duty staff (active and not
+  absent **right now**, with their handles text) and **today's date** into
+  every `PriorityClassifyRequested` — the model has no clock, and availability
+  is time-based. The Cloudflare adapter asks two choice questions: how urgent
+  (criteria = the sheet's descriptions) and who should take it (criteria =
+  `Name — handles` per on-duty staff member). The answer's staff id becomes
+  the ticket's assignee directly.
+- clef rejects a choice question with fewer than two options, so with zero or
+  one staff on duty the assignee question is skipped and the store routes
+  instead: the first active, non-absent staff member (capped at three
+  candidates). The NetCord adapter DMs the assignee — falling back to
+  `Discord__ItUser` only when the directory is empty.
 
-The file store serves an empty directory: no categories to classify with, and
-routing returns nobody, which keeps the pre-Postgres behavior unchanged.
+The file store serves an empty directory: no guidance to override the
+built-in defaults, and routing returns nobody, which keeps the pre-Postgres
+behavior unchanged.
 
 ## Modules
 
